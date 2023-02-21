@@ -84,7 +84,18 @@ def less16 a b = {
   negative16 (a - b)
 };
 
-
+// Valid for a >= 0 and b > 0
+def mod16 a b = {
+  nonNegative16 b = 0;
+  def q = fresh (a\b);
+  def r = fresh (a%b);
+  nonNegative16 r = 0;
+  
+  a = b * q + r;
+  less16 r b = 0;
+  
+  r
+};
 
 
 // *** GEB's Functions ***
@@ -113,19 +124,6 @@ def div p q x = {
   qxi = fresh (1/qx);
   qx * qxi = 1;
   (p x) * qxi
-};
-
-// Valid for a >= 0 and b > 0
-def mod16 a b = {
-  nonNegative16 b = 0;
-  def q = fresh (a\b);
-  def r = fresh (a%b);
-  nonNegative16 r = 0;
-  
-  a = b * q + r;
-  less16 r b = 0;
-  
-  r
 };
 
 // % -- modulo of two polynomials
