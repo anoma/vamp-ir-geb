@@ -115,7 +115,6 @@ def div p q x = {
   (p x) * qxi
 };
 
-// % -- modulo of two polynomials
 // Valid for a >= 0 and b > 0
 def mod16 a b = {
   nonNegative16 b = 0;
@@ -127,6 +126,11 @@ def mod16 a b = {
   less16 r b = 0;
   
   r
+};
+
+// % -- modulo of two polynomials
+def pmod16 p q x = {
+  mod16 (p x) (q x)
 };
 
 // less -- (pointwise) less-than -- inputs f, g, p, q where the output polynomial is x -> if f(x) < g(x) then p(x) else q(x)
