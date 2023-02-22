@@ -119,12 +119,7 @@ def comp p q x = p (q x);
 def sub p q x = p x - q x;
 
 // / -- divide two polynomials
-def div p q x = {
-  def qx = q x;
-  qxi = fresh (1/qx);
-  qx * qxi = 1;
-  (p x) * qxi
-};
+def div p q x = (p x) / (q x);
 
 // % -- modulo of two polynomials
 def pmod16 p q x = {
